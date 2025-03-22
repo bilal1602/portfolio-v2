@@ -51,6 +51,26 @@ const StyledPostContent = styled.div`
 `;
 
 const PostTemplate = ({ data, location }) => {
+  if (!data.markdownRemark) {
+    return (
+      <Layout location={location}>
+        <Helmet title="Post not found" />
+        <StyledPostContainer>
+          <span className="breadcrumb">
+            <span className="arrow">&larr;</span>
+            <Link to="/pensieve">All memories</Link>
+          </span>
+          <StyledPostHeader>
+            <h1 className="medium-heading">Post not found</h1>
+          </StyledPostHeader>
+          <StyledPostContent>
+            <p>This post could not be found. It may have been removed or renamed.</p>
+          </StyledPostContent>
+        </StyledPostContainer>
+      </Layout>
+    );
+  }
+
   const { frontmatter, html } = data.markdownRemark;
   const { title, date, tags } = frontmatter;
 
@@ -99,7 +119,7 @@ PostTemplate.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { slug: { eq: $path } }) {
       html
       frontmatter {
