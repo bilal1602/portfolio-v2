@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://bilalsajjad.com/sitemap-index.xml
+Sitemap: https://bilalsajjad.com/portfolio-v2/sitemap-index.xml
 Host: https://bilalsajjad.com
