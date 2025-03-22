@@ -13,6 +13,10 @@
 
 ![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
 
+## 🚨 Deployment Note
+
+The deployment works by running `npm run deploy` which builds the site and pushes it to the gh-pages branch. Make sure to set the GitHub Pages settings to use the gh-pages branch as the source.
+
 ## 🚨 Credits
 
 This website is forked from <a href="https://github.com/bchiang7/v4" target="_blank">Brittany Chiang's v4 portfolio</a>. I have adapted it for my personal use while maintaining proper attribution to the original creator.
