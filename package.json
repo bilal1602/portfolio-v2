@@ -12,6 +12,7 @@
   ],
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
+  "pathPrefix": "/portfolio-v2",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -22,7 +23,7 @@
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "deploy:ci": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/bilal1602/portfolio-v2.git"
+    "deploy:ci": "GATSBY_CPU_COUNT=logical-cores gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/bilal1602/portfolio-v2.git"
   },
   "lint-staged": {
     "*.{js,css,json,md}": [

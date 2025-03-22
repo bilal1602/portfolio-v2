@@ -1,6 +1,7 @@
 const config = require('./src/config');
 
 module.exports = {
+  pathPrefix: `/portfolio-v2`,
   siteMetadata: {
     title: 'Bilal Sajjad',
     description:
@@ -9,11 +10,24 @@ module.exports = {
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@',
   },
+  // Flags to optimize Gatsby performance
+  flags: {
+    PARALLEL_SOURCING: true,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 80,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,

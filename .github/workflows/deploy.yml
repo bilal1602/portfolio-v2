@@ -7,6 +7,7 @@ on:
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   SHARP_IGNORE_GLOBAL_LIBVIPS: true
+  npm_config_legacy_peer_deps: true
 
 jobs:
   build:
@@ -31,10 +32,13 @@ jobs:
           git config --global user.email "bilal.sajjad786@gmail.com"
           git config --global user.name "bilal1602"
 
-      - name: Install dependencies
+      - name: Clean cache and install dependencies
         run: |
+          npm cache clean --force
           npm install -g node-gyp
-          npm install --legacy-peer-deps
+          npm install sharp@0.33.2
+          npm ci --legacy-peer-deps
+          npm ls sharp
 
       - name: Build and Deploy
         run: npm run deploy:ci
