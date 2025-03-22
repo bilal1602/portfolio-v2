@@ -29,7 +29,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --network-timeout 100000 --network-concurrency 1 --no-integrity
 
       - name: Build
         run: yarn build
