@@ -8,6 +8,10 @@ on:
   # Allow manual triggering
   workflow_dispatch:
 
+# Set permissions required for GitHub pages deployment
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
